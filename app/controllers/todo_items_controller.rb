@@ -1,8 +1,8 @@
 class TodoItemsController < ApplicationController
+	before_action :require_user
 	before_action :set_todo_list
 	
 	def index
-		@todo_items = @todo_list.todo_items.all
 	end
 	
 	def new
@@ -42,19 +42,19 @@ class TodoItemsController < ApplicationController
 		else
 			flash[:error] = "Item couldn't be destroyed"
 		end
-			redirect_to todo_list_path(@todo_list)
+			redirect_to todo_list_path(@todo_list) # --> why send in instance?
 	end
 	
 	def complete
 		@todo_item = @todo_list.todo_items.find(params[:id])
 		@todo_item.update_attribute(:completed_at, Time.now)
-		redirect_to todo_list_path(@todo_list)
+		redirect_to todo_list_path(@todo_list) # --> and here?
 		flash[:success] = "Item marked as completed"
 	end
 	
 	private
 	def set_todo_list
-		@todo_list = TodoList.find(params[:todo_list_id])
+		@todo_list = current_user.todo_lists.find(params[:todo_list_id])
 	end
 	
 	def todo_item_params
