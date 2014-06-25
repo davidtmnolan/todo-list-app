@@ -1,0 +1,13 @@
+
+<%= link_to 'New Todo List', new_todo_list_path %>
+
+<h1>Listings</h1>
+
+<table>
+	<% @todo_lists.each do |todo_list| %>
+	<tr>
+		<td><%= link_to todo_list.title, todo_list_path(todo_list) %></td>
+		<td><%= link_to 'Destroy', todo_list, method: :delete, data: { confirm: "Are you sure?" } %></td>
+	</tr>
+	<% end%>
+</table>
