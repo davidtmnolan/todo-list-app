@@ -12,4 +12,36 @@
  *
  *= require_tree .
  *= require_self
+ *= require foundation_and_overrides
+
  */
+
+@import "foundation_and_overrides";
+/* Add imports of custom sass/scss files here */
+
+header {
+	width:100%;
+	margin:20px;
+	color:gray;
+}
+
+#content {
+	width:800px;
+	margin:0 auto;
+}
+
+.messages {
+	text-align:center;
+}
+
+.signed-in-as {
+}
+
+.actions {
+	width:100%;
+}
+
+#log-in, #sign-up {
+	width:50%;
+	margin:0 auto;
+}

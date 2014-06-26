@@ -24,7 +24,7 @@ class TodoListsController < ApplicationController
 	end
 	
 	def show 
-		@todo_list = TodoList.find(params[:id])
+		@todo_list = TodoList.find_by(params[:id])
 	end
 	
 	def update
@@ -35,14 +35,14 @@ class TodoListsController < ApplicationController
 		@todo_list = TodoList.find(params[:id])
 		@todo_list.destroy
 		
-		redirect_to todo_list_path, notice: "Winning"
+		redirect_to todo_lists_path, notice: "Winning"
 	end
 	
 	
 	private
 		
 	def set_todo_list
-		@todo_list = current_user.todo_lists.find(params[:id])
+		@todo_list = current_user.todo_lists.find_by(params[:id])
 	end
 		
 		def todo_list_params

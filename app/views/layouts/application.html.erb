@@ -2,30 +2,36 @@
 <html>
 <head>
   <title>TodoListApp</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-  <%= csrf_meta_tags %>
+	<%= stylesheet_link_tag    "application" %>
+  <%= javascript_include_tag "vendor/modernizr" %>
+	<%= csrf_meta_tags %>
+  
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 </head>
 <body>
-	<div class="nav">
-		<h1><%= link_to "TaDa", root_path %></h1>
-		<ul>
+	<header>
+		<div class="signed-in-as">
 			<% if logged_in? %>
-				<li><%= link_to "Log Out", logout_path, method: :delete %></li>
-			<% else %>
-				<!--<li><%= link_to "Log In", new_user_session_path %></li>-->
-				<li><%= link_to "Sign Up", new_user_path %></li>
-			<% end %>
-		</ul>
-	</div>
+				<%= "Logged in as " + @current_user.first_name + " " + @current_user.last_name + "." %>
+				<%= link_to "Log Out", logout_path, method: :delete %>
+			<% end%>
+	  </div>
+		<div class="nav">
+			<h1><%= link_to "TaaDaa", root_path %></h1>
+		</div>
+	</header>
 	
-  <% flash.each do |type, message| %>
-  <div class="alert flash <%= type %>">
-    <%= message %>
-  </div>
-  <% end %>
+	<div id="messages">
+	  <% flash.each do |type, message| %>
+	  <div class="alert flash <%= type %>">
+	    <%= message %>
+	  </div>
+	  <% end %>
+	</div>
 
-<%= yield %>
-
+	<section id="content">
+		<%= yield %>
+	</section>
+ <%= javascript_include_tag "application" %>
 </body>
 </html>
