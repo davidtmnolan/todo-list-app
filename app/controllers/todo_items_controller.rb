@@ -3,6 +3,7 @@ class TodoItemsController < ApplicationController
 	before_action :set_todo_list
 	
 	def index
+		@todo_items = @todo_list.todo_items.all
 	end
 	
 	def new
@@ -13,7 +14,7 @@ class TodoItemsController < ApplicationController
 		@todo_item = @todo_list.todo_items.new(todo_item_params)
 		if @todo_item.save
 			flash[:success] = "Item added"
-			redirect_to todo_list_path(@todo_list)
+			redirect_to todo_list_todo_items_path
 		else
 			flash[:error] = "Unable to create item"
 			render action: :new
@@ -30,7 +31,7 @@ class TodoItemsController < ApplicationController
 			flash[:success] = "Successfully Updated"
 			redirect_to todo_list_todo_items_path
 		else
-			flash[:error] = "Unable to update item"
+			flash[:error] = "Unable to update"
 			render action: :edit
 		end
 	end
@@ -42,13 +43,13 @@ class TodoItemsController < ApplicationController
 		else
 			flash[:error] = "Item couldn't be destroyed"
 		end
-			redirect_to todo_list_path(@todo_list) # --> why send in instance?
+			redirect_to todo_list_todo_items_path
 	end
 	
 	def complete
 		@todo_item = @todo_list.todo_items.find(params[:id])
 		@todo_item.update_attribute(:completed_at, Time.now)
-		redirect_to todo_list_path(@todo_list) # --> and here?
+		redirect_to todo_list_todo_items_path
 		flash[:success] = "Item marked as completed"
 	end
 	

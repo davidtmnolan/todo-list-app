@@ -3,10 +3,12 @@ class TodoListsController < ApplicationController
 	before_action :set_todo_list, only: [:show, :edit, :update, :destroy]
 	
 	def index
-		@todo_lists = current_user.todo_lists
+		@todo_lists = current_user.todo_lists.all
 	end
 	
 	def show
+		#DAFUG!?
+		render 'todo_items/index'
 	end
 	
 	def new
@@ -16,15 +18,11 @@ class TodoListsController < ApplicationController
 	def create
 		@todo_list = current_user.todo_lists.new(todo_list_params)
 		if @todo_list.save
-			redirect_to @todo_list
+			redirect_to todo_lists_path
 			flash[:success] = "Success"
 			else
 				render :new
 		end
-	end
-	
-	def show 
-		@todo_list = TodoList.find_by(params[:id])
 	end
 	
 	def update

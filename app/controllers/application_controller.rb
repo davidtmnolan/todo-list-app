@@ -18,7 +18,7 @@ class ApplicationController < ActionController::Base
 		if current_user
 			true
 		else
-			redirect_to new_user_session_path, notice: "Welcome!  Please login"
+			redirect_to login_path, notice: "Welcome!  Please login"
 		end
 	end
 end

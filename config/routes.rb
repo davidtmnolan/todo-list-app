@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   get "/login" => "user_sessions#new", as: :login
+	get "/signup" => "users#new", as: :signup
 	delete "/logout" => "user_sessions#destroy", as: :logout
 	
 	resources :users
