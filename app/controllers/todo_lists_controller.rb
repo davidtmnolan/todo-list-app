@@ -19,7 +19,7 @@ class TodoListsController < ApplicationController
 		@todo_list = current_user.todo_lists.new(todo_list_params)
 		if @todo_list.save
 			redirect_to todo_lists_path
-			flash[:success] = "Success"
+			flash[:success] = "List Created"
 			else
 				render :new
 		end
@@ -33,7 +33,7 @@ class TodoListsController < ApplicationController
 		@todo_list = TodoList.find(params[:id])
 		@todo_list.destroy
 		
-		redirect_to todo_lists_path, notice: "Winning"
+		redirect_to todo_lists_path, notice: "List Destroyed"
 	end
 	
 	

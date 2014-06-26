@@ -10,16 +10,41 @@
 		<th width="500px"></th>
 		<th width="150px"></th>
  	</tr>
-	<% @todo_list.todo_items.each do |todo_item| %>
-	<tr height="50px">
-		<td><% if todo_item.completed?%>
-			<%= time_ago_in_words(todo_item.completed_at) + ' ago' %>
-		<% else%>
-			<%= link_to 'Complete', complete_todo_list_todo_item_path(@todo_list, todo_item), method: :patch %>
-		 <%end%></td>
-		<td><%= todo_item.content %></td>
-		<td><%= link_to "Edit", edit_todo_list_todo_item_path(@todo_list, todo_item) %> 
-			| <%= link_to 'Destroy', todo_list_todo_item_path(@todo_list, todo_item), method: :delete, data: { confirm: "Delete?" } %></td>
-	</tr>
+	
+	<% if @todo_list.empty_list? %>
+		<tr>
+			<td>No items</td>
+		</tr>
+	<% else %>
+	
+		<% @todo_list.todo_items.incomplete.each do |todo_item| %>
+			<tr height="50px">
+			  <td>
+					<%= link_to 'Complete', complete_todo_list_todo_item_path(@todo_list, todo_item), method: :patch %>
+		    </td>
+			  <td><%= todo_item.content %></td>
+			  <td><%= link_to "Edit", edit_todo_list_todo_item_path(@todo_list, todo_item) %> | 
+					  <%= link_to 'Destroy', todo_list_todo_item_path(@todo_list, todo_item), method: :delete, data: { confirm: "Delete?" } %>
+				</td>
+		  </tr>
+		<% end %>
+		
+		<% if @todo_list.has_completed_items? %>	
+			<tr>
+				<td><h4>Completed</h4></td>
+			</tr>
+		
+			<% @todo_list.todo_items.complete.each do |todo_item| %>
+				<tr height="30px">
+					<td>
+						<%= time_ago_in_words(todo_item.completed_at) + ' ago' %>
+					</td>
+					<td><%= todo_item.content %></td>
+					<td><%= link_to 'X', todo_list_todo_item_path(@todo_list, todo_item), method: :delete, data: { confirm: "Delete?" } %></td>
+				</tr>
+		  <% end %>
+			
+		<% end %>
+		
 	<% end %>
 </table>
