@@ -1,5 +1,4 @@
 class TodoListsController < ApplicationController
-	before_action :require_user
 	before_action :set_todo_list, only: [:show, :edit, :update, :destroy]
 	
 	def index
