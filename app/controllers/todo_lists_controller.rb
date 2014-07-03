@@ -12,12 +12,17 @@ class TodoListsController < ApplicationController
 	def create
 		@todo_list = current_user.todo_lists.new(todo_list_params)
 		if @todo_list.save
-			redirect_to todo_lists_path
+      respond_to do |format|
+        format.html { redirect_to todo_lists_path }
+        format.js
+      end
 			flash[:success] = "List Created"
-			else
-				render :new
+		else
+			render :new
 		end
 	end
+  
+  
 	
 	def update
 		

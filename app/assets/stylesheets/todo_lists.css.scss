@@ -5,3 +5,19 @@
 #todo-lists table{
 	width:100%;
 }
+
+.new-list {
+  display:inline;
+  float:left;
+  width:100%;
+}
+
+#new-list-btn {
+  font-size:.9em;
+  float:left;
+  margin-right:5px;
+}
+
+#todo_list_title {
+  width:90%;
+}
