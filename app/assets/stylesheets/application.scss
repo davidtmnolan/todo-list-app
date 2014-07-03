@@ -31,7 +31,13 @@ header {
 }
 
 #messages {
-	margin:20px;
+	margin:20px; 
+	.alert {
+		color:red;
+	}
+	.success {
+		color:green;
+	}
 }
 
 .signed-in-as {

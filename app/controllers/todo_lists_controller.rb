@@ -37,13 +37,13 @@ class TodoListsController < ApplicationController
 	
 	
 	private
-		
+
 	def set_todo_list
 		@todo_list = current_user.todo_lists.find_by(params[:id])
 	end
 		
-		def todo_list_params
-			params.require(:todo_list).permit(:title)
-		end
+	def todo_list_params
+		params.require(:todo_list).permit(:title)
+	end
 	
 end
