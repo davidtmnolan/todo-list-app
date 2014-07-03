@@ -1,9 +1,15 @@
 
 <section id="todo-lists">
-	<%= link_to 'New Todo List', new_todo_list_path, :class => "button tiny" %>
+
+  <%= form_for :todo_list, url: todo_lists_path do |form| %>
+    <p>
+      <%= form.label :title%>
+      <%= form.text_field :title %>
+      <%= form.submit '+', :class => "button tiny" %>
+    </p>
+  <% end %>
 
 	<h1>Listings</h1>
-
 	<table>
 		<th>Active</th>
 		<th></th>
