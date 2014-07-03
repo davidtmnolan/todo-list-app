@@ -13,8 +13,11 @@ class TodoItemsController < ApplicationController
     @todo_item = @todo_list.todo_items.new(todo_item_params)
 
     if @todo_item.save
-      flash[:success] = "Item added"
-      redirect_to todo_list_todo_items_path
+      respond_to do |format|
+        format.html { redirect_to todo_list_todo_items_path }
+        format.js
+      end
+        flash[:success] = "Item added"
     else
       flash[:error] = "Unable to create item"
       render action: :new

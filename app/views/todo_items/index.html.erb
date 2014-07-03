@@ -2,7 +2,7 @@
 
 <h1><%= @todo_list.title %></h1>
 
-<%= form_for [@todo_list, @todo_list.todo_items.build] do |form| %>
+<%= form_for [@todo_list, @todo_list.todo_items.build], remote: true do |form| %>
 	<p>
 		<%= form.label "Add a new todo" %>
 		<%= form.text_field :content %>
@@ -10,7 +10,7 @@
 	</p>
 <% end %>
 
-<table>
+<table id="todo-items">
 	<tr>
 		<th width="200px"></th>
 		<th width="500px"></th>
@@ -19,16 +19,7 @@
 	
 	<% if @todo_items.any? %>
 		<% @todo_items.pending.each do |item| %>
-			<tr height="50px">
-			  <td>
-					<%= link_to 'Complete', [:complete, @todo_list, item], method: :patch %>
-		    </td>
-			  <td><%= item.content %></td>
-			  <td>
-          <%= link_to "Edit", [:edit, @todo_list, item] %> | 
-					<%= link_to 'Destroy', [@todo_list, item], method: :delete, data: { confirm: "Delete?" } %>
-				</td>
-		  </tr>
+			<%= render 'todo_items/todo_item', todo_list: @todo_list, item: item %>
 		<% end %>
 		
 		<% if @todo_items.completed.any? %>	
