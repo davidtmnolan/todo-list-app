@@ -3,7 +3,7 @@
 
   <%= form_for :todo_list, url: todo_lists_path do |form| %>
     <p>
-      <%= form.label :title%>
+      <%= form.label 'New List' %>
       <%= form.text_field :title %>
       <%= form.submit '+', :class => "button tiny" %>
     </p>
