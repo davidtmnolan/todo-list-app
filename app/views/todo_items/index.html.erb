@@ -2,7 +2,13 @@
 
 <h1><%= @todo_list.title %></h1>
 
-<%= link_to '+', new_todo_list_todo_item_path(@todo_list), :class => "button tiny" %>
+<%= form_for [@todo_list, @todo_list.todo_items.build] do |form| %>
+	<p>
+		<%= form.label "Add a new todo" %>
+		<%= form.text_field :content %>
+		<%= form.submit 'Save', :class => "button tiny" %>
+	</p>
+<% end %>
 
 <table>
 	<tr>
