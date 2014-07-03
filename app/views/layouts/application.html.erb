@@ -10,6 +10,7 @@
 </head>
 <body>
 	<header>
+		
 		<div class="signed-in-as">
 			<% if logged_in? %>
 				<%= "Logged in as " + @current_user.first_name + " " + @current_user.last_name + "." %>
@@ -19,6 +20,7 @@
 		<div class="nav">
 			<h1><%= link_to "This is a Todo App", root_path %></h1>
 		</div>
+		
 	</header>
 	
 	<div id="messages">
