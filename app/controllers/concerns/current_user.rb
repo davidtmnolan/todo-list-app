@@ -10,7 +10,7 @@ module CurrentUser
   private
     def require_current_user
       unless current_user
-        redirect_to login_url, notice: "Welcome! Please login"
+        redirect_to login_url
       end
     end
 
