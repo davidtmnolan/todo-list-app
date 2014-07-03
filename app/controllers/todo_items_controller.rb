@@ -2,7 +2,7 @@ class TodoItemsController < ApplicationController
   before_action :set_todo_list
   
   def index
-    @todo_items = @todo_list.todo_items
+    @todo_items = @todo_list.todo_items.order("created_at desc")
   end
   
   def new
