@@ -22,8 +22,6 @@ class TodoListsController < ApplicationController
 		end
 	end
   
-  
-	
 	def update
 		
 	end

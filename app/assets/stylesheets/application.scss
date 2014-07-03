@@ -19,6 +19,10 @@
 @import "foundation_and_overrides";
 /* Add imports of custom sass/scss files here */
 
+body {
+  font-size:.9em;
+}
+
 header {
 	width:100%;
 	margin:20px;
