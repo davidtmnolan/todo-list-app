@@ -23,18 +23,18 @@ body {
   font-size:.9em;
 }
 
+.signed-in-as {
+  font-size:150%;
+}
+
 header {
 	width:100%;
 	margin:20px;
-	color:gray;
-}
-
-#content {
-	width:800px;
-	margin:0 auto;
+	color:black;
 }
 
 #messages {
+  height:20px;
 	margin:20px; 
 	.alert {
 		color:red;
@@ -44,14 +44,7 @@ header {
 	}
 }
 
-.signed-in-as {
-}
-
-.actions {
-	width:100%;
-}
-
-#log-in, #sign-up {
-	width:50%;
+#content {
+	width:800px;
 	margin:0 auto;
 }
