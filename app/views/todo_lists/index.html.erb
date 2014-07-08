@@ -1,11 +1,9 @@
 
 <section id="todo-lists">
   <div class="new-list">
-    <%= form_for :todo_list, url: todo_lists_path, remote: true do |form| %>
+    <%= form_for :todo_list, url: todo_lists_path do |form| %>
       <p>
-        <%= form.label 'New List' %>
-        <%= form.submit '+', :class => "button tiny", :id => "new-list-btn" %>
-        <%= form.text_field :title %>
+        <%= form.text_field :title, :placeholder => "New list" %>
       </p>
     <% end %>
   </div>
