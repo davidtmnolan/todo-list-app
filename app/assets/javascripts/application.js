@@ -16,4 +16,10 @@
 //= require turbolinks
 //= require_tree .
 
+$(document).ready(function(){
+  setTimeout(function(){
+    $('#messages').text("");
+  }, 5000);
+ })
+ 
 $(function(){ $(document).foundation(); });
