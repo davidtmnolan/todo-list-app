@@ -1,14 +1,14 @@
 <div id="log-in">
-	<h1>Log In</h1>
-	<%= form_tag user_sessions_path do %>
-		<%= label_tag :email, "Email" %>
-		<%= text_field_tag :email, params[:email] %>
-		<br />
-	
-		<%= label_tag :password, "Password" %>
-		<%= password_field_tag :password, params[:password] %>
-	
-		<%= submit_tag "Log In", :class => 'button small' %> or
-		<%= link_to "Sign Up", :signup, :class => 'button tiny' %>
-	<% end %>
+  <h3>Welcome! Please login</h3>
+  <%= form_tag user_sessions_path do %>
+    <%= label_tag :email, "Email" %>
+    <%= text_field_tag :email, params[:email] %>
+    <br />
+    <%= label_tag :password, "Password" %>
+    <%= password_field_tag :password, params[:password] %>
+    <div class="login-actions">
+      <%= submit_tag "Log In", :class => 'button small' %> | |
+      <%= link_to "Sign Up", :signup, :class => 'button tiny' %>
+    </div>
+  <% end %>
 </div>

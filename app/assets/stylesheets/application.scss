@@ -19,18 +19,21 @@
 @import "foundation_and_overrides";
 /* Add imports of custom sass/scss files here */
 
-body {
+#page-wrap {
+  max-width:700px;
+  margin:0 auto;
 }
 
 .signed-in-as {
+  margin-top:20px;
   font-size:.8em;
 }
 
 header {
 	width:100%;
-	margin:20px;
 	color:black;
   h1 { 
+    text-align:center;
     margin-bottom:-50px;
     font-family: 'Monofett', cursive; 
   }
@@ -38,7 +41,12 @@ header {
 
 #messages {
   height:20px;
-	margin:40px 20px 20px 20px; 
+  width:100%;
+  margin:60px 0 0 0;
+  .alert, .flash, .error {
+    text-align:center;
+    margin:0 auto;
+  }
 	.alert {
 		color:red;
 	}
@@ -48,7 +56,6 @@ header {
 }
 
 #content {
-  max-width:700px;
   margin:25px;
 }
 
