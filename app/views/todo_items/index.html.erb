@@ -4,36 +4,29 @@
 
 <%= form_for [@todo_list, @todo_list.todo_items.build], remote: true do |form| %>
 	<p>
-		<%= form.label "Add a new todo" %>
-		<%= form.text_field :content %>
-		<%= form.submit '+', :class => "button tiny" %>
+		<%= form.text_field :content, :placeholder => "New item" %>
+		<!--<%= form.submit '+', :class => "button tiny" %> -->
 	</p>
 <% end %>
 
-<table id="todo-items">
-	<tr>
-		<th width="200px"></th>
-		<th width="500px"></th>
-		<th width="150px"></th>
- 	</tr>
-	
-	<% if @todo_items.any? %>
+<% if @todo_items.any? %>
+  <table id="pending-items">
+  	<tr>
+  		<th width="200px"></th>
+  		<th width="500px"></th>
+  		<th width="150px"></th>
+   	</tr>
 		<% @todo_items.pending.each do |item| %>
 			<%= render 'todo_items/todo_item', todo_list: @todo_list, item: item %>
 		<% end %>
-		
-		<% if @todo_items.completed.any? %>	
-			<tr><td><h4>Completed</h4></td></tr>
-		
-			<% @todo_items.completed.each do |item| %>
-				<tr height="30px">
-					<td>
-						<%= time_ago_in_words(item.completed_at) + ' ago' %>
-					</td>
-					<td><%= item.content %></td>
-					<td><%= link_to 'X', [@todo_list, item], method: :delete, data: { confirm: "Delete?" } %></td>
-				</tr>
-		  <% end %>
-		<% end %>
-	<% end %>
-</table>
+  </table>
+<% end %>
+
+<% if @todo_items.completed.any? %>	
+  <table id="completed-items">
+		<tr><td><h4>Completed</h4></td></tr>
+		<% @todo_items.completed.each do |item| %>
+			<%= render 'todo_items/completed_todo_item', todo_list: @todo_list, item: item %>
+	  <% end %>
+  </table>
+<% end %>
