@@ -10,31 +10,32 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 </head>
 <body>
-	<header>
-		
-		<div class="signed-in-as">
-			<% if logged_in? %>
-				<%= "Logged in as " + @current_user.full_name + "." %>
-				<%= link_to "Log Out", :logout, method: :delete %>
-			<% end%>
-	  </div>
-		<div class="nav">
-			<h1><%= link_to "Toodoos", root_path %></h1>
-		</div>
-		
-	</header>
-	
-	<div id="messages">
-	  <% flash.each do |type, message| %>
-	  <div class="alert flash <%= type %>">
-	    <%= message %>
-	  </div>
-	  <% end %>
-	</div>
+  <div id="page-wrap">
+    <header>
+      <div class="signed-in-as">
+        <% if logged_in? %>
+          <%= "Logged in as " + @current_user.full_name + "." %>
+          <%= link_to "Log Out", :logout, method: :delete %>
+        <% end%>
+      </div>
 
-	<section id="content">
-		<%= yield %>
-	</section>
- <%= javascript_include_tag "application" %>
+      <div class="nav">
+        <h1><%= link_to "Toodoos", root_path %></h1>
+      </div>
+    </header>
+
+    <div id="messages">
+      <% flash.each do |type, message| %>
+      <div class="alert flash <%= type %>">
+        <%= message %>
+      </div>
+      <% end %>
+    </div>
+
+    <section id="content">
+      <%= yield %>
+    </section>
+   <%= javascript_include_tag "application" %>
+  </div>
 </body>
 </html>
