@@ -1,6 +1,6 @@
-<tr height="50px">
-  <td><%= link_to 'Complete', [:complete, todo_list, item], method: :patch %></td>
+<tr id="<%= dom_id(item) %>" height="50px">
+  <td><%= link_to 'Complete', [:complete, todo_list, item], method: :patch, remote: true %></td>
   <td><%= item.content %></td>
   <td><%= link_to "Edit", [:edit, todo_list, item] %> | 
-      <%= link_to 'Destroy', [todo_list, item], method: :delete, data: { confirm: "Delete?" } %></td>
+      <%= link_to 'Destroy', [todo_list, item], remote: true, method: :delete, data: { confirm: "Delete?" } %></td>
 </tr>

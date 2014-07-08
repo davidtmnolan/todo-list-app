@@ -42,21 +42,23 @@ class TodoItemsController < ApplicationController
   
   def destroy
     @todo_item = @todo_list.todo_items.find(params[:id])
-
     if @todo_item.destroy
-      flash[:success] = "Item destroyed"
+      respond_to do |format|
+        format.js
+        flash[:success] = "Item destroyed"
+      end
     else
       flash[:error] = "Item couldn't be destroyed"
     end
-
-    redirect_to todo_list_todo_items_path
   end
   
   def complete
     @todo_item = @todo_list.todo_items.find(params[:id])
     @todo_item.complete!
+    respond_to do |format|
+      format.js
+    end
     flash[:success] = "Item marked as completed"
-    redirect_to todo_list_todo_items_url
   end
   
   private
