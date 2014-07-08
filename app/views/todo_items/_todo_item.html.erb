@@ -1,4 +1,4 @@
-<tr id="<%= dom_id(item) %>" height="50px">
+<tr id="<%= dom_id(item) %>">
   <td><%= link_to 'Complete', [:complete, todo_list, item], method: :patch, remote: true %></td>
   <td><%= item.content %></td>
   <td><%= link_to "Edit", [:edit, todo_list, item] %> | 

@@ -134,7 +134,7 @@
 // $header-text-rendering: optimizeLegibility;
 
 // We use these to control header font sizes
-// $h1-font-size: rem-calc(44);
+   $h1-font-size: 5rem;
 // $h2-font-size: rem-calc(37);
 // $h3-font-size: rem-calc(27);
 // $h4-font-size: rem-calc(23);
@@ -1105,8 +1105,8 @@
 // $table-head-padding: rem-calc(8 10 10);
 
 // These control the row padding and font styles
-// $table-row-padding: rem-calc(9 10);
-// $table-row-font-size: rem-calc(14);
+   $table-row-padding: 5px;
+   $table-row-font-size: .9em;
 // $table-row-font-color: #222;
 // $table-line-height: rem-calc(18);
 

@@ -3,16 +3,17 @@
   <div class="new-list">
     <%= form_for :todo_list, url: todo_lists_path do |form| %>
       <p>
-        <%= form.text_field :title, :placeholder => "New list" %>
+        <%= form.text_field :title, :placeholder => "New list +" %>
       </p>
     <% end %>
   </div>
 
-	<h1>Listings</h1>
+	<h2>Listings</h2>
 	<table id ="todo-lists">
-		<th>Active</th>
 		<th></th>
-		<th>Completed</th>
+    <th>Complete</th>
+    <th>Active</th>
+		
 		<% @todo_lists.each do |todo_list| %>
 			<%= render 'todo_lists/todo_list', todo_list: todo_list %>
 		<% end%>
