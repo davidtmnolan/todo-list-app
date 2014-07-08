@@ -1,4 +1,6 @@
 class TodoItemsController < ApplicationController
+  include ActionView::RecordIdentifier
+  
   before_action :set_todo_list
   
   def index
