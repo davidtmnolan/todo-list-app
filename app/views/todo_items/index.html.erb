@@ -21,11 +21,10 @@
 </table>
 
 
-<% if @todo_items.completed.any? %>	
-  <table id="completed-items">
-		<tr><td><h4>Completed</h4></td></tr>
-		<% @todo_items.completed.each do |item| %>
-      <%= render 'todo_items/completed_todo_item', todo_list: @todo_list, item: item %>
-	  <% end %>
-  </table>
-<% end %>
+<table id="completed-items">
+	<tr><td><h5>Completed</h5></td></tr>
+	<% @todo_items.completed.each do |item| %>
+    <%= render 'todo_items/completed_todo_item', todo_list: @todo_list, item: item %>
+  <% end %>
+</table>
+
