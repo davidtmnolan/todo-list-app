@@ -16,7 +16,6 @@ class TodoItemsController < ApplicationController
 
     if @todo_item.save
       respond_to do |format|
-        format.html { redirect_to todo_list_todo_items_path }
         format.js
       end
         flash[:success] = "Item added"

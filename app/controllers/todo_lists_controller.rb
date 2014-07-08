@@ -11,15 +11,14 @@ class TodoListsController < ApplicationController
 	
 	def create
 		@todo_list = current_user.todo_lists.new(todo_list_params)
+    
 		if @todo_list.save
       respond_to do |format|
-        format.html { redirect_to todo_lists_path }
-        format.js
+        format.html { redirect_to todo_list_todo_items_path(@todo_list) }
       end
 			flash[:success] = "List Created"
-		else
-			render :new
 		end
+    
 	end
   
 	def update
@@ -29,8 +28,9 @@ class TodoListsController < ApplicationController
 	def destroy
 		@todo_list = TodoList.find(params[:id])
 		@todo_list.destroy
-		
-		redirect_to todo_lists_path, notice: "List Destroyed"
+		respond_to do |format|
+      format.js
+    end
 	end
 	
 	
