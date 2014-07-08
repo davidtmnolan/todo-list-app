@@ -9,24 +9,23 @@
 	</p>
 <% end %>
 
-<% if @todo_items.any? %>
-  <table id="pending-items">
-  	<tr>
-  		<th width="200px"></th>
-  		<th width="500px"></th>
-  		<th width="150px"></th>
-   	</tr>
-		<% @todo_items.pending.each do |item| %>
-			<%= render 'todo_items/todo_item', todo_list: @todo_list, item: item %>
-		<% end %>
-  </table>
-<% end %>
+<table id="pending-items">
+  <tr>
+    <th width="200px"></th>
+    <th width="500px"></th>
+    <th width="150px"></th>
+  </tr>
+    <% @todo_items.pending.each do |item| %>
+    	<%= render 'todo_items/todo_item', todo_list: @todo_list, item: item %>
+    <% end %>
+</table>
+
 
 <% if @todo_items.completed.any? %>	
   <table id="completed-items">
 		<tr><td><h4>Completed</h4></td></tr>
 		<% @todo_items.completed.each do |item| %>
-			<%= render 'todo_items/completed_todo_item', todo_list: @todo_list, item: item %>
+      <%= render 'todo_items/completed_todo_item', todo_list: @todo_list, item: item %>
 	  <% end %>
   </table>
 <% end %>
