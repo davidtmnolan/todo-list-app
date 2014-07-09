@@ -12,13 +12,17 @@
 <body>
   <div id="page-wrap">
     <header>
+      <div class="todays-date">
+        <% if logged_in? %>
+          <%= render 'todo_items/date' %>
+        <% end %>
+      </div>
       <div class="signed-in-as">
         <% if logged_in? %>
-          <%= "Logged in as " + @current_user.full_name + "." %>
-          <%= link_to "Log Out", :logout, method: :delete %>
+          <h5>Hello <%= @current_user.first_name %>!
+          <small><%= link_to "Log Out", :logout, method: :delete %></small></h5>
         <% end%>
       </div>
-
       <div class="nav">
         <h1><%= link_to "Toodoos", root_path %></h1>
       </div>

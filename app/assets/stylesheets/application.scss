@@ -63,9 +63,15 @@ header {
 }
 
 #content {
-  margin:25px;
+  margin:0 20px;
+  table, td, tr {
+    line-height:1rem;
+  }
 }
 
-table, td, tr {
-  line-height:1rem;
+#todo_list_title, #todo_item_content {
+  padding:0 8px;
+  height:1.7rem;
 }
+
+

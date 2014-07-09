@@ -4,6 +4,12 @@
 
 #todo-lists {
 	width:100%;
+  td {
+    text-align:center;
+    &:first-child {
+      text-align:left;
+    }
+  }
 }
 
 .new-list {
