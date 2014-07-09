@@ -1,5 +1,5 @@
 <tr id="<%= dom_id(item) %>" height="30px">
-	<td><%= time_ago_in_words(item.completed_at) + ' ago' %></td>
-	<td><%= item.content %></td>
-	<td><%= link_to 'X', [@todo_list, item], method: :delete, data: { confirm: "Delete?" }, remote: true %></td>
+  <td><%= item.content %></td>
+  <td><%= time_ago_in_words(item.completed_at) + ' ago' %></td>
+  <td><%= link_to 'X', [@todo_list, item], method: :delete, data: { confirm: "Delete?" }, remote: true %></td>
 </tr>

@@ -10,13 +10,14 @@
 <% end %>
 <table id="pending-items">
   <tr>
-    <th width="200px"></th>
+    <th width="100px"></th>
     <th width="500px"></th>
-    <th width="150px"></th>
+    <th width="170px"></th>
+    <th width="100px"></th>
   </tr>
-    <% @todo_items.pending.each do |item| %>
-    	<%= render 'todo_items/todo_item', todo_list: @todo_list, item: item %>
-    <% end %>
+  <% @todo_items.pending.each do |item| %>
+    <%= render 'todo_items/pending_todo_item', todo_list: @todo_list, item: item %>
+  <% end %>
 </table>
 
 
