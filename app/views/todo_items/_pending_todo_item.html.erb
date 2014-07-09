@@ -1,0 +1,9 @@
+<tr id="<%= dom_id(item) %>">
+  <td><%= link_to 'Complete', [:complete, todo_list, item], method: :patch, remote: true %></td>
+  <td>
+    <%= item.content %>
+  </td>
+  <td width="60px"><%= distance_of_time_in_words_to_now(item.created_at) + " ago" %></td>
+  <td><%= link_to "Edit", [:edit, todo_list, item] %> | 
+      <%= link_to 'X', [todo_list, item], remote: true, method: :delete, data: { confirm: "Delete?" } %></td>
+</tr>
