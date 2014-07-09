@@ -1,14 +1,13 @@
-<%= link_to 'Back', todo_lists_path %>
-
-<h2><%= @todo_list.title %></h2>
-
+<h3><%= @todo_list.title %></h3>
+<div class="back-button">
+  <%= link_to '<', todo_lists_path %>
+</div>
 <%= form_for [@todo_list, @todo_list.todo_items.build], remote: true do |form| %>
 	<p>
 		<%= form.text_field :content, :placeholder => "New item" %>
 		<!--<%= form.submit '+', :class => "button tiny" %> -->
 	</p>
 <% end %>
-
 <table id="pending-items">
   <tr>
     <th width="200px"></th>

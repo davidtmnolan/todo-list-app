@@ -1,3 +1,28 @@
 // Place all the styles related to the todo_items controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+#pending-items tr td {
+  line-height:.7rem;
+}
+
+.back-button {
+  width:30px;
+  background-color:rgba(0,0,0,.1);
+  margin-bottom:10px;
+  border-radius:20%;
+  padding-bottom:5px;
+  a {
+    padding:5px 0;
+    margin-left:5px;
+    color:gray;
+    font-size:2rem;
+    font-weight:bold;
+  }
+  &:hover {
+    background-color:rgba(0,0,0,.5);
+    a {
+      color:white;
+    }
+  }
+}
