@@ -1,8 +1,8 @@
 class TodoItemsController < ApplicationController
   include ActionView::RecordIdentifier
-  
+
   before_action :set_todo_list
-  
+
   def index
     @todo_items = @todo_list.todo_items.order("created_at desc")
   end
@@ -10,7 +10,7 @@ class TodoItemsController < ApplicationController
   def new
     @todo_item = @todo_list.todo_items.build
   end
-  
+
   def create
     @todo_item = @todo_list.todo_items.new(todo_item_params)
 
@@ -18,11 +18,11 @@ class TodoItemsController < ApplicationController
       respond_to do |format|
         format.js
       end
-        flash[:success] = "Item added"
+      flash[:success] = "Item added"
     else
       flash[:error] = "Unable to create item"
-      render action: :new
     end
+
   end
   
   def edit 
@@ -66,7 +66,7 @@ class TodoItemsController < ApplicationController
     def set_todo_list
       @todo_list = current_user.todo_lists.find(params[:todo_list_id])
     end
-  
+
     def todo_item_params
       params.require(:todo_item).permit(:content)
     end
