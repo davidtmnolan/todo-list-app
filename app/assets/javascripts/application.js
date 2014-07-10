@@ -21,5 +21,5 @@ $(document).ready(function(){
     $('#messages').text("");
   }, 5000);
  })
- 
+
 $(function(){ $(document).foundation(); });

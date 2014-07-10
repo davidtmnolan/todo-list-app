@@ -6,7 +6,7 @@ class TodoItemsController < ApplicationController
   def index
     @todo_items = @todo_list.todo_items.order("created_at desc")
   end
-  
+
   def new
     @todo_item = @todo_list.todo_items.build
   end
@@ -24,8 +24,8 @@ class TodoItemsController < ApplicationController
     end
 
   end
-  
-  def edit 
+
+  def edit
     @todo_item = @todo_list.todo_items.find(params[:id])
   end
   
@@ -40,7 +40,7 @@ class TodoItemsController < ApplicationController
       render action: :edit
     end
   end
-  
+
   def destroy
     @todo_item = @todo_list.todo_items.find(params[:id])
     if @todo_item.destroy
@@ -52,7 +52,7 @@ class TodoItemsController < ApplicationController
       flash[:error] = "Item couldn't be destroyed"
     end
   end
-  
+
   def complete
     @todo_item = @todo_list.todo_items.find(params[:id])
     @todo_item.complete!
@@ -61,7 +61,7 @@ class TodoItemsController < ApplicationController
     end
     flash[:success] = "Item marked as completed"
   end
-  
+
   private
     def set_todo_list
       @todo_list = current_user.todo_lists.find(params[:todo_list_id])

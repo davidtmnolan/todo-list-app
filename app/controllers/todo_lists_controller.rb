@@ -1,6 +1,6 @@
 class TodoListsController < ApplicationController
   before_action :set_todo_list, only: [:show, :edit, :update, :destroy]
-  
+
   def index
     @todo_lists = current_user.todo_lists.paginate(:page => params[:page], :per_page => 8).order('created_at desc')
   end
@@ -25,7 +25,6 @@ class TodoListsController < ApplicationController
   end
 
   def update
-
   end
 
   def destroy
@@ -41,7 +40,7 @@ class TodoListsController < ApplicationController
   def set_todo_list
     @todo_list = current_user.todo_lists.find_by(params[:id])
   end
-  
+
   def todo_list_params
     params.require(:todo_list).permit(:title)
   end

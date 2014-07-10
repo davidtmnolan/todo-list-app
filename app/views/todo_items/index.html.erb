@@ -1,9 +1,9 @@
 <h3><%= @todo_list.title %></h3>
 <%= form_for [@todo_list, @todo_list.todo_items.build], remote: true do |form| %>
-	<p>
-		<%= form.text_field :content, :placeholder => "New item" %>
-		<!--<%= form.submit '+', :class => "button tiny" %> -->
-	</p>
+  <p>
+    <%= form.text_field :content, :placeholder => "New item" %>
+    <!--<%= form.submit '+', :class => "button tiny" %> -->
+  </p>
 <% end %>
 <div class="back-button">
   <%= link_to '<', todo_lists_path %>
@@ -22,9 +22,8 @@
 
 
 <table id="completed-items">
-	<tr><td><h5>Completed</h5></td></tr>
-	<% @todo_items.completed.each do |item| %>
+  <tr><td><h5>Completed</h5></td></tr>
+  <% @todo_items.completed.each do |item| %>
     <%= render 'todo_items/completed_todo_item', todo_list: @todo_list, item: item %>
   <% end %>
 </table>
-
