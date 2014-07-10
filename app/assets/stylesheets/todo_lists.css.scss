@@ -1,7 +1,12 @@
 .new-list {
-  display:block;
-  float:left;
-  width:100%;
+  margin: 0 auto;
+  width:95%;
+  p {
+    margin:0;
+  }
+  #todo_list_title {
+    margin:0;
+  }
 }
 
 #todo-lists, #completed-lists {
