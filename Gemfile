@@ -34,4 +34,8 @@ gem 'spring',        group: :development
 # Use ActiveModel has_secure_password
 gem 'bcrypt', '~> 3.1.7'
 
+# Use Foundation for site layout
 gem 'foundation-rails'
+
+#Use will_paginate for pagination
+gem 'will_paginate', '~> 3.0'

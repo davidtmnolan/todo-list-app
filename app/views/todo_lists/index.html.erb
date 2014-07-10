@@ -9,7 +9,16 @@
   </div>
 
   <table id ="todo-lists">
-    <% @todo_lists.each do |todo_list| %>
+    <% @todo_lists.pending.each do |todo_list| %>
+      <%= render 'todo_lists/todo_list', todo_list: todo_list %>
+    <% end%>
+  </table>
+  <div class="pagination">
+    <%= will_paginate @todo_lists %>
+  </div>
+
+  <table id ="completed-lists">
+    <% @todo_lists.completed.each do |todo_list| %>
       <%= render 'todo_lists/todo_list', todo_list: todo_list %>
     <% end%>
   </table>

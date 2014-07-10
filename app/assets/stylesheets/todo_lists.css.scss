@@ -12,9 +12,28 @@
   }
 }
 
-.new-list {
-  display:block;
-  float:left;
-  width:100%;
+#completed-lists {
+  margin-top:30px;
+  opacity:.7;
+}
+
+.created-at {
+  font-size:.7em;
+}
+
+.pagination {
+  margin-top:-10px;
+  a, span, em {
+    border-radius:10%;
+    font-style:normal;
+    padding:2px 5px 2px 5px;
+    border:1px solid gray;
+    a:hover {
+      background-color:lightgray;
+    }
+  }
+  .next_page, .previous_page {
+    display:none;
+  }
 }
 
