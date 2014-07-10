@@ -9,7 +9,8 @@
   }
 }
 
-#todo-lists, #completed-lists {
+#pending-lists, #completed-lists {
+  border:none;
   width:100%;
   td {
     text-align:center;
