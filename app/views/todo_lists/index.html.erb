@@ -6,19 +6,33 @@
       </p>
     <% end %>
   </div>
-
-  <table id ="todo-lists">
-    <% @todo_lists.pending.each do |todo_list| %>
-      <%= render 'todo_lists/todo_list', todo_list: todo_list %>
-    <% end%>
-  </table>
-  <div class="pagination">
-    <%= will_paginate @todo_lists %>
-  </div>
-
-  <table id ="completed-lists">
-    <% @todo_lists.completed.each do |todo_list| %>
-      <%= render 'todo_lists/todo_list', todo_list: todo_list %>
-    <% end%>
-  </table>
+  <dl class="accordion" data-accordion>
+    <dd class="accordion-navigation">
+      <div id="pending-lists" class="content active">
+        <dl class="tabs" data-tab>
+          <dd class="active"><a href="#panel2-1">Lists</a></dd>
+          <dd><a href="#panel2-2">Completed</a></dd>
+        </dl>
+        <div class="tabs-content">
+          <div class="content active" id="panel2-1">
+            <table id ="pending-lists">
+              <% @todo_lists.pending.each do |todo_list| %>
+                <%= render 'todo_lists/todo_list', todo_list: todo_list %>
+              <% end%>
+            </table>
+            <div class="pagination">
+              <%= will_paginate @todo_lists %>
+            </div>
+          </div>
+          <div class="content" id="panel2-2">
+            <table id ="completed-lists">
+              <% @todo_lists.completed.each do |todo_list| %>
+                <%= render 'todo_lists/todo_list', todo_list: todo_list %>
+              <% end%>
+            </table>
+          </div>
+        </div>
+      </div>
+    </dd>
+  </dl>
 </section>
