@@ -1,3 +1,6 @@
+<div class="back-button">
+  <%= link_to '<', todo_lists_path %>
+</div>
 <h3><%= @todo_list.title %></h3>
 <%= form_for [@todo_list, @todo_list.todo_items.build], remote: true do |form| %>
   <p>
@@ -5,9 +8,6 @@
     <!--<%= form.submit '+', :class => "button tiny" %> -->
   </p>
 <% end %>
-<div class="back-button">
-  <%= link_to '<', todo_lists_path %>
-</div>
 <table id="pending-items">
   <tr>
     <th width="100px"></th>
