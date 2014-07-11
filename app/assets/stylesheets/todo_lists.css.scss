@@ -44,3 +44,19 @@ dl.tabs dd a {
   padding:5px 10px;
   margin-right:5px;
 }
+
+div#panel2-1.content, div#panel2-2.content {
+  padding:5px 0;
+}
+
+#pending-lists {
+  margin-bottom:0;
+}
+
+.list-count {
+  margin:10px 0 15px 0;
+  p {
+    font-size:.8rem;
+    opacity:.8;
+  }
+}
