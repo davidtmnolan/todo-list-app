@@ -20,6 +20,9 @@
                 <%= render 'todo_lists/todo_list', todo_list: todo_list %>
               <% end%>
             </table>
+            <div class="list-count">
+              <p><%= @todo_lists.pending.count %> lists</p>
+            </div>
             <div class="pagination">
               <%= will_paginate @todo_lists %>
             </div>
