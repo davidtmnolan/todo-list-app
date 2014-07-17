@@ -6,13 +6,8 @@ class TodoItem < ActiveRecord::Base
   scope :pending,   -> { where('completed_at is null') }
   scope :completed, -> { where('completed_at is not null') }
 
-  after_update do
-    todo_list.mark_as_completed_if_all_items_are_completed
-  end
-
-  after_destroy do
-    todo_list.mark_as_completed_if_all_items_are_completed
-  end
+  after_save :notify_todo_list
+  after_destroy :notify_todo_list
 
   def completed?
     completed_at?
@@ -25,4 +20,9 @@ class TodoItem < ActiveRecord::Base
   def uncomplete!
     update_attribute :completed_at, nil
   end
+  
+  private
+    def notify_todo_list
+      todo_list.mark_as_completed_if_all_items_are_completed
+    end
 end
