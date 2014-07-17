@@ -1,2 +1,2 @@
 $('#<%= dom_id(@todo_item) %>').remove();
-$('#completed-items tr:first').after('<%= j render 'todo_items/completed_todo_item', todo_list: @todo_list, item: @todo_item %>');
+$('#completed-items tr:first').after('<%= j render 'todo_items/completed', item: @todo_item %>');
