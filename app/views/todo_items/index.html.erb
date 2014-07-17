@@ -16,13 +16,13 @@
     <th width="100px"></th>
   </tr>
   <% @todo_items.pending.each do |item| %>
-    <%= render 'todo_items/pending_todo_item', todo_list: @todo_list, item: item %>
+    <%= render 'todo_items/pending', todo_list: @todo_list, item: item %>
   <% end %>
 </table>
 
 <table id="completed-items">
   <tr><td><h5>Completed</h5></td></tr>
   <% @todo_items.completed.each do |item| %>
-    <%= render 'todo_items/completed_todo_item', todo_list: @todo_list, item: item %>
+    <%= render 'todo_items/completed', todo_list: @todo_list, item: item %>
   <% end %>
 </table>
